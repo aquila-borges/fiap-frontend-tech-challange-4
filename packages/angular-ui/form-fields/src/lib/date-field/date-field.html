@@ -1,0 +1,17 @@
+<mat-form-field appearance="outline" subscriptSizing="dynamic">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    placeholder="DD/MM/AAAA"
+    [matDatepicker]="picker"
+    [formControl]="control"
+  />
+  <mat-datepicker-toggle matIconSuffix [for]="picker" />
+  <mat-datepicker #picker />
+  @if (hint) {
+    <mat-hint>{{ hint }}</mat-hint>
+  }
+  @if (control.invalid && (control.dirty || control.touched)) {
+    <mat-error>{{ errorMessage }}</mat-error>
+  }
+</mat-form-field>

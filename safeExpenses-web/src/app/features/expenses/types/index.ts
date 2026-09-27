@@ -1,0 +1,1 @@
+export type { ExpenseEntryType } from './expense-entry-type.type';

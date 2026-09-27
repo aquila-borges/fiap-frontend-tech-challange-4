@@ -7,3 +7,5 @@ export { ConfirmDialogService } from './lib/confirm-dialog/confirm-dialog.servic
 export { ToastService } from './lib/toast/toast.service';
 export { provideToastNotifications } from './lib/toast/toast.providers';
 export { ptBrNumberFormatter } from './lib/utils/number-formatters';
+export { AlertComponent } from './lib/alert/alert';
+export { AlertType } from './lib/alert/alert.models';

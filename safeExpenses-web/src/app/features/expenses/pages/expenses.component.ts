@@ -1,10 +1,15 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
 import { ConfirmDialogService, ToastService } from '@safeexpenses/angular-ui';
 
 import { ExpenseActionsComponent } from '../components/expense-actions/expense-actions.component';
+import { ExpenseFormDialogComponent } from '../components/expense-form-dialog/expense-form-dialog.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
-import { ExpenseFilters } from '../interfaces/expense-filters.interface';
+import {
+  ExpenseFormDialogData,
+  ExpenseFormDialogResult,
+} from '../interfaces/expense-form-dialog.interface';
 import { Expense, UpdateExpensePayload } from '../models/expense.model';
 import { DeleteExpenseUseCase } from '../use-cases/delete-expense.use-case';
 import { ListExpensesUseCase } from '../use-cases/list-expenses.use-case';
@@ -22,19 +27,17 @@ export class ExpensesComponent implements OnInit {
   private readonly deleteExpenseUseCase = inject(DeleteExpenseUseCase);
   private readonly confirmDialogService = inject(ConfirmDialogService);
   private readonly toastService = inject(ToastService);
+  private readonly dialog = inject(MatDialog);
 
-  private readonly expenses = signal<Expense[]>([]);
-  private readonly filters = signal<ExpenseFilters>({});
-
+  readonly expenses = signal<Expense[]>([]);
   readonly loading = signal(false);
   readonly error = signal<string | null>(null);
   readonly selectedIds = signal<ReadonlySet<string>>(new Set());
 
-  readonly allExpenses = this.expenses.asReadonly();
   readonly selectedCount = computed(() => this.selectedIds().size);
 
   readonly allVisibleSelected = computed(() => {
-    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    const visibleIds = this.expenses().map((expense) => expense.id);
     if (!visibleIds.length) {
       return false;
     }
@@ -43,7 +46,7 @@ export class ExpensesComponent implements OnInit {
   });
 
   readonly partiallyVisibleSelected = computed(() => {
-    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    const visibleIds = this.expenses().map((expense) => expense.id);
     if (!visibleIds.length) {
       return false;
     }
@@ -52,32 +55,16 @@ export class ExpensesComponent implements OnInit {
     return selectedVisibleCount > 0 && selectedVisibleCount < visibleIds.length;
   });
 
-  readonly filteredExpenses = computed(() => {
-    const filters = this.filters();
-    return this.expenses().filter((expense) => {
-      if (filters.category && expense.category !== filters.category) {
-        return false;
-      }
-      if (filters.account && expense.account !== filters.account) {
-        return false;
-      }
-      if (filters.consolidated !== undefined && expense.consolidated !== filters.consolidated) {
-        return false;
-      }
-      return true;
-    });
-  });
-
   ngOnInit(): void {
     this.loadExpenses();
   }
 
   onAddExpense(): void {
-    this.error.set('Add expense flow is not implemented yet.');
+    this.openExpenseDialog();
   }
 
-  onFiltersChange(filters: ExpenseFilters): void {
-    this.filters.set(filters);
+  onEditExpense(expense: Expense): void {
+    this.openExpenseDialog({ expense });
   }
 
   onSelectionToggle(id: string): void {
@@ -91,7 +78,7 @@ export class ExpensesComponent implements OnInit {
   }
 
   onSelectAllToggle(checked: boolean): void {
-    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    const visibleIds = this.expenses().map((expense) => expense.id);
     const next = new Set(this.selectedIds());
 
     if (checked) {
@@ -194,6 +181,7 @@ export class ExpensesComponent implements OnInit {
     this.listExpensesUseCase.execute().subscribe({
       next: (expenses) => {
         this.expenses.set(expenses);
+        this.error.set(null);
         this.loading.set(false);
       },
       error: () => {
@@ -201,6 +189,28 @@ export class ExpensesComponent implements OnInit {
         this.loading.set(false);
       },
     });
+  }
+
+  private openExpenseDialog(data?: ExpenseFormDialogData): void {
+    this.dialog
+      .open<ExpenseFormDialogComponent, ExpenseFormDialogData | undefined, ExpenseFormDialogResult>(
+        ExpenseFormDialogComponent,
+        {
+          width: '640px',
+          maxWidth: '92vw',
+          autoFocus: false,
+          disableClose: true,
+          panelClass: 'se-dialog-panel',
+          backdropClass: 'se-dialog-backdrop',
+          data,
+        },
+      )
+      .afterClosed()
+      .subscribe((result) => {
+        if (result?.changed) {
+          this.loadExpenses();
+        }
+      });
   }
 
   private buildUpdatePayload(expense: Expense, consolidated: boolean): UpdateExpensePayload {

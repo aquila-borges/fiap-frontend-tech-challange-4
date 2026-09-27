@@ -1,7 +1,0 @@
-.configurations-dialog__options {
-	display: grid;
-	gap: 16px;
-	padding: 20px 8px;
-	background: var(--se-color-surface-variant);
-	border-radius: var(--se-dialog-container-shape);
-}

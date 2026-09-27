@@ -1,0 +1,22 @@
+<div
+  class="se-alert se-alert--{{ type }}"
+  [attr.role]="type === 'error' ? 'alert' : 'status'"
+>
+  <span class="material-icons se-alert__icon" aria-hidden="true">{{ icon }}</span>
+  <div class="se-alert__content">
+    @if (title) {
+      <strong class="se-alert__title">{{ title }}</strong>
+    }
+    <span class="se-alert__message">{{ message }}</span>
+  </div>
+  @if (dismissible) {
+    <button
+      class="se-alert__close"
+      type="button"
+      aria-label="Fechar mensagem"
+      (click)="dismiss.emit()"
+    >
+      <span class="material-icons" aria-hidden="true">close</span>
+    </button>
+  }
+</div>

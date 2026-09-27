@@ -22,6 +22,7 @@
 	/* STATUS COLORS */
 	--se-color-status-positive: #4ade80;
 	--se-color-status-negative: #ff6b4a;
+	--se-color-status-error: #ff3030;
 
 	/* SURFACE/BACKGROUND COLORS */
 	--se-color-surface-app: #1d2033;
@@ -63,7 +64,17 @@
 	--se-color-toast-accent-success: var(--se-color-status-positive);
 	--se-color-toast-accent-error: var(--se-color-status-negative);
 	--se-color-toast-accent-info: #4a9dff;
-	--se-color-toast-accent-warning: #ffc24a;
+	--se-color-toast-accent-warning: var(--se-color-text-secondary);
+
+	/* ALERT TOKENS */
+	--se-alert-background: var(--se-color-surface-variant);
+	--se-alert-text: var(--se-color-text-primary);
+	--se-alert-text-secondary: var(--se-color-text-secondary);
+	--se-alert-shape: var(--se-dialog-container-shape);
+	--se-alert-accent-success: var(--se-color-toast-accent-success);
+	--se-alert-accent-error: var(--se-color-toast-accent-error);
+	--se-alert-accent-info: var(--se-color-toast-accent-info);
+	--se-alert-accent-warning: var(--se-color-toast-accent-warning);
 
 	/* SCROLLBAR TOKENS */
 	--se-color-scrollbar-track: #10141d;

@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Editar despesa' : 'Nova despesa' }}</h2>
+
+<div mat-dialog-content>
+  @if (alert(); as currentAlert) {
+    <se-alert
+      [type]="currentAlert.type"
+      [message]="currentAlert.message"
+      [dismissible]="true"
+      (dismiss)="clearAlert()"
+    />
+  }
+
+  <form class="expense-form" [formGroup]="form">
+    <div class="expense-form__wide">
+      <se-input
+        label="Descrição"
+        placeholder="Ex.: Compra do supermercado"
+        [control]="form.controls.description"
+        [errorMessages]="{
+          required: 'Informe a descrição.',
+          whitespace: 'Informe uma descrição válida.',
+          minlength: 'A descrição deve ter pelo menos 3 caracteres.'
+        }"
+      />
+    </div>
+
+    <div class="expense-form__type" aria-label="Tipo do lançamento">
+      <mat-button-toggle-group formControlName="type" aria-label="Tipo do lançamento">
+        @for (option of typeOptions; track option.value) {
+          <mat-button-toggle [value]="option.value">{{ option.label }}</mat-button-toggle>
+        }
+      </mat-button-toggle-group>
+    </div>
+
+    <se-input
+      label="Valor"
+      type="text"
+      inputMode="decimal"
+      mask="separator.2"
+      prefix="R$ "
+      thousandSeparator="."
+      decimalMarker=","
+      [control]="form.controls.amount"
+      [errorMessages]="{
+        required: 'Informe o valor.',
+        min: 'O valor deve ser maior que zero.'
+      }"
+    />
+
+    <se-select
+      label="Categoria"
+      placeholder="Selecione uma categoria"
+      [control]="form.controls.category"
+      [options]="categoryOptions"
+      [errorMessages]="{ required: 'Selecione a categoria.' }"
+    />
+
+    <se-select
+      label="Conta"
+      placeholder="Selecione uma conta"
+      [control]="form.controls.account"
+      [options]="accountOptions"
+      [errorMessages]="{ required: 'Selecione a conta.' }"
+    />
+
+    <se-date-field
+      label="Data"
+      [control]="form.controls.transactionDate"
+      [errorMessages]="{ required: 'Informe a data.' }"
+    />
+
+    <div class="expense-form__consolidated">
+      <mat-slide-toggle formControlName="consolidated">
+        <span class="se-slide-toggle-title">Consolidado</span>
+        <span class="se-slide-toggle-description">Marque quando o lançamento já foi efetivado.</span>
+      </mat-slide-toggle>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <se-secondary-button [disabled]="submitting()" (buttonClick)="cancel()">
+    Cancelar
+  </se-secondary-button>
+  @if (!isEditMode) {
+    <se-secondary-button [disabled]="submitting()" (buttonClick)="saveAndCreateAnother()">
+      Salvar e criar outra
+    </se-secondary-button>
+  }
+  <se-primary-button [disabled]="submitting()" (buttonClick)="save()">
+    Salvar
+  </se-primary-button>
+</div>

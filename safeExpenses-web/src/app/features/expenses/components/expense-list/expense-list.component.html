@@ -5,8 +5,16 @@
         <tr
           [class.expense-list__row--consolidated]="expense.consolidated"
           [class.expense-list__row--selected]="isSelected(expense.id)"
+          tabindex="0"
+          [attr.aria-label]="'Editar despesa ' + expense.description"
+          (click)="expenseClick.emit(expense)"
+          (keydown)="onRowKeydown($event, expense)"
         >
-          <td class="expense-list__checkbox">
+          <td
+            class="expense-list__checkbox"
+            (click)="$event.stopPropagation()"
+            (keydown)="$event.stopPropagation()"
+          >
             <mat-checkbox
               [checked]="isSelected(expense.id)"
               (change)="toggleSelection(expense.id)"
@@ -21,7 +29,7 @@
           >
             {{ formatValue(expense.value) }}
           </td>
-          <td>
+          <td (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()">
             <mat-slide-toggle
               matTooltip="Consolidar"
               [checked]="expense.consolidated"

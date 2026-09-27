@@ -1,0 +1,40 @@
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  padding-top: 16px;
+}
+
+.expense-form__wide,
+.expense-form__consolidated {
+  grid-column: 1 / -1;
+}
+
+.expense-form__type {
+  align-self: start;
+}
+
+.expense-form__type mat-button-toggle-group {
+  width: 100%;
+}
+
+.expense-form__type mat-button-toggle {
+  flex: 1;
+}
+
+.expense-form__consolidated {
+  padding: 14px 16px;
+  border-radius: var(--se-button-shape);
+  background: var(--se-color-surface-variant);
+}
+
+@media (max-width: 620px) {
+  .expense-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .expense-form__wide,
+  .expense-form__consolidated {
+    grid-column: auto;
+  }
+}

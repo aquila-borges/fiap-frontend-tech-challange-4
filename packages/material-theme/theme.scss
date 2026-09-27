@@ -33,9 +33,19 @@ html {
 		label-text-color: var(--se-color-text-primary),
 		label-text-size: 1rem,
 		selected-track-color: var(--se-color-brand-primary),
-		selected-icon-color: var(--se-color-border),
-		selected-hover-handle-color: var(--se-color-text-primary-hover),
-		selected-pressed-handle-color: var(--se-color-text-primary-hover),
+		selected-handle-color: var(--se-color-text-primary),
+		selected-icon-color: var(--se-color-brand-primary),
+		selected-focus-handle-color: var(--se-color-text-primary),
+		selected-hover-handle-color: var(--se-color-text-primary),
+		selected-pressed-handle-color: var(--se-color-text-primary),
+	));
+
+	@include mat.button-toggle-overrides((
+		background-color: transparent,
+		divider-color: var(--se-color-border),
+		selected-state-background-color: var(--se-color-brand-primary),
+		selected-state-text-color: var(--se-color-text-on-brand),
+		text-color: var(--se-color-text-secondary),
 	));
 
 	@include mat.tooltip-overrides((
@@ -63,6 +73,61 @@ html {
 		supporting-text-tracking: 0,
 		with-actions-content-padding: var(--se-dialog-with-actions-content-padding),
 	));
+
+	@include mat.form-field-overrides((
+		outlined-container-shape: var(--se-button-shape),
+		outlined-input-text-color: var(--se-color-text-primary),
+		outlined-input-text-placeholder-color: var(--se-color-text-muted),
+		outlined-label-text-color: var(--se-color-text-secondary),
+		outlined-outline-color: var(--se-color-border),
+		outlined-hover-outline-color: var(--se-color-text-secondary),
+		outlined-focus-outline-color: var(--se-color-brand-primary),
+		outlined-focus-label-text-color: var(--se-color-brand-primary),
+		error-text-color: var(--se-color-status-error),
+		outlined-error-caret-color: var(--se-color-status-error),
+		outlined-error-label-text-color: var(--se-color-status-error),
+		outlined-error-outline-color: var(--se-color-status-error),
+		outlined-error-focus-label-text-color: var(--se-color-status-error),
+		outlined-error-focus-outline-color: var(--se-color-status-error),
+		outlined-error-hover-label-text-color: var(--se-color-status-error),
+		outlined-error-hover-outline-color: var(--se-color-status-error),
+		trailing-icon-color: var(--se-color-text-secondary),
+	));
+
+	@include mat.select-overrides((
+		container-elevation-shadow: var(--se-shadow-medium),
+		panel-background-color: var(--se-color-surface-primary-strong),
+		enabled-trigger-text-color: var(--se-color-text-primary),
+		placeholder-text-color: var(--se-color-text-muted),
+		enabled-arrow-color: var(--se-color-text-secondary),
+		focused-arrow-color: var(--se-color-brand-primary),
+	));
+
+	@include mat.datepicker-overrides((
+		calendar-container-elevation-shadow: var(--se-shadow-medium),
+		calendar-container-touch-elevation-shadow: var(--se-shadow-medium),
+		calendar-container-background-color: var(--se-color-surface-primary-strong),
+		calendar-container-text-color: var(--se-color-text-primary),
+		calendar-header-text-color: var(--se-color-text-secondary),
+		calendar-navigation-button-icon-color: var(--se-color-text-secondary),
+		calendar-period-button-icon-color: var(--se-color-text-secondary),
+		calendar-period-button-text-color: var(--se-color-text-secondary),
+		calendar-date-selected-state-background-color: var(--se-color-brand-primary),
+		calendar-date-selected-state-text-color: var(--se-color-text-on-brand),
+		toggle-icon-color: var(--se-color-text-secondary),
+	));
+}
+
+.mat-mdc-form-field.mat-focused .mat-datepicker-toggle {
+	--mat-datepicker-toggle-icon-color: var(--se-color-brand-primary);
+}
+
+.mat-button-toggle-checked {
+	background: var(--se-gradient-brand);
+}
+
+.mat-button-toggle-checked:hover {
+	background: var(--se-gradient-brand-hover);
 }
 
 .se-dialog-panel .mat-mdc-dialog-surface {

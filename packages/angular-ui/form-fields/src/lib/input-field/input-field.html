@@ -1,0 +1,33 @@
+<mat-form-field appearance="outline" subscriptSizing="dynamic">
+  <mat-label>{{ label }}</mat-label>
+  @if (mask) {
+    <input
+      matInput
+      [formControl]="control"
+      [type]="type"
+      [attr.inputmode]="inputMode"
+      [placeholder]="placeholder"
+      [mask]="mask"
+      [prefix]="prefix"
+      [thousandSeparator]="thousandSeparator"
+      [decimalMarker]="decimalMarker"
+      [dropSpecialCharacters]="dropSpecialCharacters"
+    />
+  } @else {
+    <input
+      matInput
+      [formControl]="control"
+      [type]="type"
+      [attr.inputmode]="inputMode"
+      [placeholder]="placeholder"
+      [attr.min]="min ?? null"
+      [attr.step]="step ?? null"
+    />
+  }
+  @if (hint) {
+    <mat-hint>{{ hint }}</mat-hint>
+  }
+  @if (control.invalid && (control.dirty || control.touched)) {
+    <mat-error>{{ errorMessage }}</mat-error>
+  }
+</mat-form-field>

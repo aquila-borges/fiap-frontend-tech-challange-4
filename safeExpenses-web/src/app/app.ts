@@ -14,8 +14,6 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfigurationsDialogComponent } from './features/configurations/configurations-dialog';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +24,6 @@ import { ConfigurationsDialogComponent } from './features/configurations/configu
 export class App {
   private readonly mobileBreakpoint = 700;
   private readonly router = inject(Router);
-  private readonly dialog = inject(MatDialog);
   private readonly loadingPhrases = [
     'Good things take time. Almost there!',
     'Hang tight, we’re working our magic...',
@@ -71,14 +68,6 @@ export class App {
     if (window.innerWidth <= this.mobileBreakpoint) {
       this.isSidebarCollapsed = true;
     }
-  }
-
-  openConfigurations(): void {
-    this.dialog.open(ConfigurationsDialogComponent, {
-      width: '720px',
-      maxWidth: '92vw',
-      autoFocus: false,
-    });
   }
 
   private pickLoadingPhrase(): string {

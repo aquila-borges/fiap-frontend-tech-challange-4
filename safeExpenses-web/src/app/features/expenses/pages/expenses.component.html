@@ -3,10 +3,6 @@
 } @else if (error()) {
   <p>{{ error() }}</p>
 } @else {
-  <!--<app-expense-filters
-    [expenses]="allExpenses()"
-    (filtersChange)="onFiltersChange($event)"
-  />-->
   <app-expense-actions
     [selectedCount]="selectedCount()"
     [allSelected]="allVisibleSelected()"
@@ -18,8 +14,9 @@
     (deleteSelected)="onDeleteSelected()"
   />
   <app-expense-list
-    [expenses]="filteredExpenses()"
+    [expenses]="expenses()"
     [selectedIds]="selectedIds()"
+    (expenseClick)="onEditExpense($event)"
     (selectionToggle)="onSelectionToggle($event)"
     (consolidatedToggle)="onConsolidatedToggle($event)"
   />

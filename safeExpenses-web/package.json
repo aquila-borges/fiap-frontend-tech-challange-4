@@ -31,6 +31,7 @@
     "@safeexpenses/angular-ui": "file:../packages/angular-ui/dist",
     "@safeexpenses/design-system": "file:../packages/design-system",
     "@safeexpenses/material-theme": "file:../packages/material-theme",
+    "ngx-mask": "^21.1.0",
     "ngx-toastr": "^20.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
@@ -46,8 +47,8 @@
     "eslint-config-prettier": "^10.1.8",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
-    "typescript-eslint": "^8.41.0",
     "typescript": "~5.9.2",
+    "typescript-eslint": "^8.41.0",
     "vitest": "^4.0.8"
   }
 }

@@ -15,6 +15,7 @@ import { Expense } from '../../models/expense.model';
 export class ExpenseListComponent {
   readonly expenses = input<Expense[]>([]);
   readonly selectedIds = input<ReadonlySet<string>>(new Set());
+  readonly expenseClick = output<Expense>();
   readonly consolidatedToggle = output<Expense>();
   readonly selectionToggle = output<string>();
   readonly balance = computed(() =>
@@ -31,6 +32,15 @@ export class ExpenseListComponent {
 
   onToggleConsolidated(expense: Expense): void {
     this.consolidatedToggle.emit(expense);
+  }
+
+  onRowKeydown(event: KeyboardEvent, expense: Expense): void {
+    if (event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) {
+      return;
+    }
+
+    event.preventDefault();
+    this.expenseClick.emit(expense);
   }
 
   formatValue(value: number): string {

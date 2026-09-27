@@ -10,7 +10,13 @@
 }
 
 .expense-list tbody tr {
+  cursor: pointer;
   transition: background-color 0.15s ease-in-out;
+}
+
+.expense-list tbody tr:focus-visible {
+  outline: 2px solid var(--se-color-brand-primary);
+  outline-offset: -2px;
 }
 
 .expense-list tbody tr.expense-list__row--consolidated {
