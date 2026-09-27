@@ -98,3 +98,54 @@ html {
 	-webkit-backdrop-filter: blur(8px);
 	backdrop-filter: blur(8px);
 }
+
+/* TOAST OVERRIDES (ngx-toastr) */
+.toast-container .ngx-toastr {
+	border-radius: var(--se-toast-shape);
+	box-shadow: var(--se-toast-shadow);
+	background-color: var(--se-toast-background);
+	color: var(--se-toast-text);
+	font-family: var(--se-font-family);
+}
+
+.toast-container .ngx-toastr:hover {
+	box-shadow: var(--se-toast-shadow);
+}
+
+.toast-title {
+	color: var(--se-toast-text);
+}
+
+.toast-message {
+	color: var(--se-toast-text-secondary);
+}
+
+.toast-close-button {
+	color: var(--se-toast-text);
+	text-shadow: none;
+}
+
+.toast-success {
+	background-color: var(--se-toast-background);
+	border-left: 4px solid var(--se-color-toast-accent-success);
+}
+
+.toast-error {
+	background-color: var(--se-toast-background);
+	border-left: 4px solid var(--se-color-toast-accent-error);
+}
+
+.toast-info {
+	background-color: var(--se-toast-background);
+	border-left: 4px solid var(--se-color-toast-accent-info);
+}
+
+.toast-warning {
+	background-color: var(--se-toast-background);
+	border-left: 4px solid var(--se-color-toast-accent-warning);
+}
+
+.toast-progress {
+	background-color: var(--se-toast-text);
+}
+

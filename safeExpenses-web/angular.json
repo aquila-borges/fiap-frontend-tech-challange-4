@@ -28,6 +28,7 @@
               }
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "node_modules/@safeexpenses/material-theme/theme.scss",
               "src/styles.css"
             ],

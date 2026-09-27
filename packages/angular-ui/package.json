@@ -8,13 +8,15 @@
   "peerDependencies": {
     "@angular/material": "^21.2.0",
     "@angular/core": "^21.2.0",
-    "@safeexpenses/design-system": "^0.1.0"
+    "@safeexpenses/design-system": "^0.1.0",
+    "ngx-toastr": "^20.0.5"
   },
   "devDependencies": {
     "@angular/material": "^21.2.0",
     "@angular/compiler-cli": "^21.2.0",
     "@safeexpenses/design-system": "file:../design-system",
     "ng-packagr": "^21.2.0",
+    "ngx-toastr": "^20.0.5",
     "typescript": "~5.9.2"
   }
 }

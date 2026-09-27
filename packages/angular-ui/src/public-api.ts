@@ -1,4 +1,9 @@
 export { PrimaryButtonComponent } from './lib/primary-button/primary-button';
 export { SecondaryButtonComponent } from './lib/secondary-button/secondary-button';
 export { IconButtonComponent } from './lib/icon-button/icon-button';
+export { ConfirmDialogComponent } from './lib/confirm-dialog/confirm-dialog';
+export { ConfirmDialogData } from './lib/confirm-dialog/confirm-dialog.models';
+export { ConfirmDialogService } from './lib/confirm-dialog/confirm-dialog.service';
+export { ToastService } from './lib/toast/toast.service';
+export { provideToastNotifications } from './lib/toast/toast.providers';
 export { ptBrNumberFormatter } from './lib/utils/number-formatters';

@@ -54,6 +54,17 @@
 	--se-color-tooltip-text: var(--se-color-text-primary);
 	--se-tooltip-text-size: 0.8rem;
 
+	/* TOAST TOKENS */
+	--se-toast-background: var(--se-color-surface-primary-strong);
+	--se-toast-text: var(--se-color-text-primary);
+	--se-toast-text-secondary: var(--se-color-text-secondary);
+	--se-toast-shape: var(--se-dialog-container-shape);
+	--se-toast-shadow: var(--se-shadow-medium);
+	--se-color-toast-accent-success: var(--se-color-status-positive);
+	--se-color-toast-accent-error: var(--se-color-status-negative);
+	--se-color-toast-accent-info: #4a9dff;
+	--se-color-toast-accent-warning: #ffc24a;
+
 	/* SCROLLBAR TOKENS */
 	--se-color-scrollbar-track: #10141d;
 	--se-color-scrollbar-track-end: #161920;

@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<div mat-dialog-content>
+  <p class="se-confirm-dialog__message">{{ data.message }}</p>
+</div>
+
+<div mat-dialog-actions>
+  <se-secondary-button (buttonClick)="cancel()">{{ data.cancelLabel ?? 'Cancelar' }}</se-secondary-button>
+  <se-primary-button (buttonClick)="confirm()">{{ data.confirmLabel ?? 'Confirmar' }}</se-primary-button>
+</div>

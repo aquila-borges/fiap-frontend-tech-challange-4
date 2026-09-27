@@ -1,5 +1,6 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { ConfirmDialogService, ToastService } from '@safeexpenses/angular-ui';
 
 import { ExpenseActionsComponent } from '../components/expense-actions/expense-actions.component';
 import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
@@ -19,6 +20,8 @@ export class ExpensesComponent implements OnInit {
   private readonly listExpensesUseCase = inject(ListExpensesUseCase);
   private readonly updateExpenseUseCase = inject(UpdateExpenseUseCase);
   private readonly deleteExpenseUseCase = inject(DeleteExpenseUseCase);
+  private readonly confirmDialogService = inject(ConfirmDialogService);
+  private readonly toastService = inject(ToastService);
 
   private readonly expenses = signal<Expense[]>([]);
   private readonly filters = signal<ExpenseFilters>({});
@@ -157,13 +160,33 @@ export class ExpensesComponent implements OnInit {
       return;
     }
 
-    forkJoin(ids.map((id) => this.deleteExpenseUseCase.execute(id))).subscribe({
-      next: () => {
-        this.selectedIds.set(new Set());
-        this.loadExpenses();
-      },
-      error: () => this.error.set('Could not delete selected expenses.'),
-    });
+    const isSingle = ids.length === 1;
+    this.confirmDialogService
+      .confirm({
+        title: isSingle ? 'Excluir despesa' : 'Excluir despesas',
+        message: isSingle
+          ? 'Tem certeza que deseja excluir esta despesa? Esta ação não pode ser desfeita.'
+          : `Tem certeza que deseja excluir estas ${ids.length} despesas? Esta ação não pode ser desfeita.`,
+        confirmLabel: 'Excluir',
+        cancelLabel: 'Cancelar',
+      })
+      .subscribe((confirmed) => {
+        if (!confirmed) {
+          return;
+        }
+
+        forkJoin(ids.map((id) => this.deleteExpenseUseCase.execute(id))).subscribe({
+          next: () => {
+            this.selectedIds.set(new Set());
+            this.loadExpenses();
+            this.toastService.success('Despesa excluída com sucesso.');
+          },
+          error: () => {
+            this.error.set('Could not delete selected expenses.');
+            this.toastService.error('Não foi possível excluir a despesa.');
+          },
+        });
+      });
   }
 
   private loadExpenses(): void {
