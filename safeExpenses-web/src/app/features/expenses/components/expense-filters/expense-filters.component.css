@@ -20,6 +20,6 @@
   background-color: var(--se-color-surface-variant);
   color: var(--se-color-text-primary);
   border: 1px solid var(--se-color-border);
-  border-radius: 6px;
+  border-radius: var(--se-button-shape);
   padding: 0.4rem 0.6rem;
 }

@@ -1,3 +1,9 @@
-<button class="se-primary-button" [attr.type]="type" [disabled]="disabled" (click)="onClick($event)">
+<button
+  class="se-primary-button"
+  matRipple
+  [attr.type]="type"
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
   <ng-content />
 </button>

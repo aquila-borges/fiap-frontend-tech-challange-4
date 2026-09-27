@@ -33,6 +33,9 @@ html {
 		label-text-color: var(--se-color-text-primary),
 		label-text-size: 1rem,
 		selected-track-color: var(--se-color-brand-primary),
+		selected-icon-color: var(--se-color-border),
+		selected-hover-handle-color: var(--se-color-text-primary-hover),
+		selected-pressed-handle-color: var(--se-color-text-primary-hover),
 	));
 
 	@include mat.tooltip-overrides((
@@ -61,7 +64,6 @@ html {
 		with-actions-content-padding: var(--se-dialog-with-actions-content-padding),
 	));
 }
-
 .se-dialog-panel .mat-mdc-dialog-surface {
 	background: var(--se-dialog-container-background);
 	border: 1px solid var(--se-color-dialog-border);

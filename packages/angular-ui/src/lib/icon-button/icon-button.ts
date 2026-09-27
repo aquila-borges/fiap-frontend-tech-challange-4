@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
   selector: 'se-icon-button',
   standalone: true,
+  imports: [MatRippleModule],
   templateUrl: './icon-button.html',
   styleUrl: './icon-button.css',
 })

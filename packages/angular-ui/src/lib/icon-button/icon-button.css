@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: var(--se-button-shape);
   padding: 10px 16px;
   background-color: var(--se-color-brand-primary);
   color: var(--se-color-text-on-brand);
