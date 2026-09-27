@@ -2,62 +2,29 @@
   "expenses": [
     {
       "id": "33333333-3333-4333-8333-333333333333",
-      "description": "Monthly rent",
+      "description": "Aluguel mensal",
       "category": "Casa",
       "account": "Conta Corrente",
       "value": -1650,
       "consolidated": true,
       "transactionDate": "2026-06-03T09:00:00.000Z",
       "createdAt": "2026-06-03T09:00:00.000Z",
-      "updatedAt": "2026-09-27T21:24:10.649Z"
+      "updatedAt": "2026-09-27T23:45:22.537Z"
     },
     {
       "id": "44444444-4444-4444-8444-444444444444",
-      "description": "June groceries",
+      "description": "Compras de junho",
       "category": "Alimentação",
       "account": "Cartão de Crédito",
       "value": -356,
       "consolidated": true,
       "transactionDate": "2026-06-12T12:00:00.000Z",
       "createdAt": "2026-06-12T12:00:00.000Z",
-      "updatedAt": "2026-09-27T21:53:43.467Z"
-    },
-    {
-      "id": "99999999-9999-4999-8999-999999999999",
-      "description": "Online course enrollment",
-      "category": "Educação",
-      "account": "Conta Corrente",
-      "value": -299,
-      "consolidated": false,
-      "transactionDate": "2026-07-28T10:00:00.000Z",
-      "createdAt": "2026-07-28T10:00:00.000Z",
-      "updatedAt": "2026-09-27T21:48:16.229Z"
-    },
-    {
-      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
-      "description": "August electricity bill",
-      "category": "Casa",
-      "account": "Conta Corrente",
-      "value": -285,
-      "consolidated": false,
-      "transactionDate": "2026-08-05T09:00:00.000Z",
-      "createdAt": "2026-08-05T09:00:00.000Z",
-      "updatedAt": "2026-09-27T21:45:21.446Z"
-    },
-    {
-      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
-      "description": "Dentist appointment",
-      "category": "Saúde",
-      "account": "Conta Corrente",
-      "value": -210,
-      "consolidated": false,
-      "transactionDate": "2026-08-10T00:00:00.000Z",
-      "createdAt": "2026-08-10T11:00:00.000Z",
-      "updatedAt": "2026-09-27T21:54:28.581Z"
+      "updatedAt": "2026-09-27T23:45:22.538Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000001",
-      "description": "Monthly salary",
+      "description": "Salário mensal",
       "category": "Serviços Financeiros",
       "account": "Conta Corrente",
       "value": 4200,
@@ -67,85 +34,41 @@
       "updatedAt": "2026-09-27T21:54:10.657Z"
     },
     {
-      "id": "00000000-0000-4000-8000-000000000002",
-      "description": "Internet bill",
-      "category": "Casa",
-      "account": "Conta Corrente",
-      "value": -99.9,
-      "consolidated": true,
-      "transactionDate": "2026-06-07T09:00:00.000Z",
-      "createdAt": "2026-06-07T09:00:00.000Z",
-      "updatedAt": "2026-09-27T21:31:22.631Z"
-    },
-    {
-      "id": "00000000-0000-4000-8000-000000000003",
-      "description": "Weekly groceries",
-      "category": "Alimentação",
-      "account": "Cartão de Crédito",
-      "value": -184.75,
-      "consolidated": false,
-      "transactionDate": "2026-06-09T12:30:00.000Z",
-      "createdAt": "2026-06-09T12:30:00.000Z",
-      "updatedAt": "2026-06-09T12:30:00.000Z"
-    },
-    {
-      "id": "00000000-0000-4000-8000-000000000004",
-      "description": "Pharmacy purchase",
-      "category": "Saúde",
-      "account": "Cartão de Crédito",
-      "value": -47.3,
-      "consolidated": false,
-      "transactionDate": "2026-06-11T16:15:00.000Z",
-      "createdAt": "2026-06-11T16:15:00.000Z",
-      "updatedAt": "2026-06-11T16:15:00.000Z"
-    },
-    {
       "id": "00000000-0000-4000-8000-000000000005",
-      "description": "Bus pass",
+      "description": "Passe de ônibus",
       "category": "Transporte",
       "account": "Cartão de Crédito",
       "value": -68,
       "consolidated": true,
       "transactionDate": "2026-06-14T08:00:00.000Z",
       "createdAt": "2026-06-14T08:00:00.000Z",
-      "updatedAt": "2026-06-14T08:00:00.000Z"
+      "updatedAt": "2026-09-27T23:47:43.089Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000006",
-      "description": "Dinner with friends",
+      "description": "Jantar com amigos",
       "category": "Alimentação",
       "account": "Cartão de Crédito",
       "value": -132.5,
       "consolidated": false,
-      "transactionDate": "2026-06-20T20:00:00.000Z",
+      "transactionDate": "2026-06-10T00:00:00.000Z",
       "createdAt": "2026-06-20T20:00:00.000Z",
-      "updatedAt": "2026-06-20T20:00:00.000Z"
+      "updatedAt": "2026-09-27T23:45:33.820Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000007",
-      "description": "Freelance design project",
+      "description": "Projeto freelancer de design",
       "category": "Serviços Financeiros",
       "account": "Conta Corrente",
       "value": 850,
-      "consolidated": false,
+      "consolidated": true,
       "transactionDate": "2026-06-25T14:00:00.000Z",
       "createdAt": "2026-06-25T14:00:00.000Z",
-      "updatedAt": "2026-06-25T14:00:00.000Z"
-    },
-    {
-      "id": "00000000-0000-4000-8000-000000000008",
-      "description": "Home cleaning supplies",
-      "category": "Casa",
-      "account": "Cartão de Crédito",
-      "value": -76.4,
-      "consolidated": true,
-      "transactionDate": "2026-07-02T10:00:00.000Z",
-      "createdAt": "2026-07-02T10:00:00.000Z",
-      "updatedAt": "2026-07-02T10:00:00.000Z"
+      "updatedAt": "2026-09-27T22:08:30.202Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000009",
-      "description": "Mobile phone plan",
+      "description": "Plano de celular",
       "category": "Casa",
       "account": "Conta Corrente",
       "value": -59.9,
@@ -156,7 +79,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000010",
-      "description": "Book purchase",
+      "description": "Compra de livro",
       "category": "Educação",
       "account": "Cartão de Crédito",
       "value": -89.9,
@@ -167,7 +90,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000011",
-      "description": "Car fuel",
+      "description": "Combustível do carro",
       "category": "Transporte",
       "account": "Cartão de Crédito",
       "value": -210.35,
@@ -178,7 +101,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000012",
-      "description": "Concert tickets",
+      "description": "Ingressos para show",
       "category": "Lazer",
       "account": "Cartão de Crédito",
       "value": -240,
@@ -189,7 +112,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000013",
-      "description": "Apartment maintenance fee",
+      "description": "Taxa de condomínio",
       "category": "Casa",
       "account": "Conta Corrente",
       "value": -175,
@@ -199,19 +122,8 @@
       "updatedAt": "2026-07-26T09:00:00.000Z"
     },
     {
-      "id": "00000000-0000-4000-8000-000000000014",
-      "description": "Monthly salary",
-      "category": "Serviços Financeiros",
-      "account": "Conta Corrente",
-      "value": 4200,
-      "consolidated": true,
-      "transactionDate": "2026-08-01T09:00:00.000Z",
-      "createdAt": "2026-08-01T09:00:00.000Z",
-      "updatedAt": "2026-08-01T09:00:00.000Z"
-    },
-    {
       "id": "00000000-0000-4000-8000-000000000015",
-      "description": "Supermarket weekly shop",
+      "description": "Compras semanais no supermercado",
       "category": "Alimentação",
       "account": "Cartão de Crédito",
       "value": -213.68,
@@ -222,7 +134,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000016",
-      "description": "Water bill",
+      "description": "Conta de água",
       "category": "Casa",
       "account": "Conta Corrente",
       "value": -72.15,
@@ -233,7 +145,7 @@
     },
     {
       "id": "00000000-0000-4000-8000-000000000017",
-      "description": "Running shoes",
+      "description": "Tênis de corrida",
       "category": "Gastos Esporádicos",
       "account": "Cartão de Crédito",
       "value": -329.9,
@@ -243,19 +155,8 @@
       "updatedAt": "2026-08-12T15:00:00.000Z"
     },
     {
-      "id": "00000000-0000-4000-8000-000000000018",
-      "description": "Online language class",
-      "category": "Educação",
-      "account": "Cartão de Crédito",
-      "value": -145,
-      "consolidated": true,
-      "transactionDate": "2026-08-16T18:00:00.000Z",
-      "createdAt": "2026-08-16T18:00:00.000Z",
-      "updatedAt": "2026-08-16T18:00:00.000Z"
-    },
-    {
       "id": "00000000-0000-4000-8000-000000000020",
-      "description": "Cashback reward",
+      "description": "Recompensa de dinheiro de volta",
       "category": "Serviços Financeiros",
       "account": "Cartão de Crédito",
       "value": 38.75,
@@ -265,48 +166,15 @@
       "updatedAt": "2026-08-24T12:00:00.000Z"
     },
     {
-      "description": "Compra de mercado",
-      "category": "Educação",
-      "account": "Conta Corrente",
-      "value": -250,
-      "consolidated": true,
-      "transactionDate": "2026-09-24T00:00:00.000Z",
-      "createdAt": "2026-09-27T21:35:50.086Z",
-      "updatedAt": "2026-09-27T21:35:58.712Z",
-      "id": "G-CnhANL4IM"
-    },
-    {
-      "description": "Teste cadastro",
-      "category": "Lazer",
-      "account": "Conta Corrente",
-      "value": 256.25,
-      "consolidated": false,
-      "transactionDate": "2026-09-27T00:00:00.000Z",
-      "createdAt": "2026-09-27T21:36:30.991Z",
-      "updatedAt": "2026-09-27T21:36:30.991Z",
-      "id": "E2mn-gBe0Mk"
-    },
-    {
-      "description": "testando o enter",
-      "category": "Lazer",
-      "account": "Conta Corrente",
-      "value": -5222,
-      "consolidated": true,
-      "transactionDate": "2026-09-17T00:00:00.000Z",
-      "createdAt": "2026-09-27T21:39:56.329Z",
-      "updatedAt": "2026-09-27T21:39:56.329Z",
-      "id": "YpODbpKF2So"
-    },
-    {
-      "description": "saddssad",
-      "category": "Lazer",
-      "account": "Conta Corrente",
-      "value": -2500,
+      "description": "Supermercado",
+      "category": "Alimentação",
+      "account": "Cartão de Crédito",
+      "value": -856.65,
       "consolidated": true,
       "transactionDate": "2026-09-27T00:00:00.000Z",
-      "createdAt": "2026-09-27T21:40:11.547Z",
-      "updatedAt": "2026-09-27T21:40:11.547Z",
-      "id": "s8NvFguiwEE"
+      "createdAt": "2026-09-27T23:48:38.824Z",
+      "updatedAt": "2026-09-27T23:48:38.824Z",
+      "id": "Bt8HDCnmlvQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
