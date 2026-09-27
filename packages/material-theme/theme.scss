@@ -38,6 +38,11 @@ html {
 		selected-focus-handle-color: var(--se-color-text-primary),
 		selected-hover-handle-color: var(--se-color-text-primary),
 		selected-pressed-handle-color: var(--se-color-text-primary),
+		unselected-track-color: var(--se-color-control-inactive),
+		unselected-focus-track-color: var(--se-color-control-inactive),
+		unselected-hover-track-color: var(--se-color-control-inactive),
+		unselected-pressed-track-color: var(--se-color-control-inactive),
+		unselected-icon-color: var(--se-color-control-inactive),
 	));
 
 	@include mat.button-toggle-overrides((

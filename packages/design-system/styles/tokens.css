@@ -35,6 +35,7 @@
 	--se-color-surface-consolidated: #141724;
 	--se-color-surface-dialog: var(--se-color-surface-primary-strong);
 	--se-color-border: #343647;
+	--se-color-control-inactive: #454b5c;
 
 	/* DIALOG TOKENS */
 	--se-dialog-container-shape: 8px;

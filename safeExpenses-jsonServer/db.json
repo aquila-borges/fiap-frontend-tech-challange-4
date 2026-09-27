@@ -17,10 +17,10 @@
       "category": "Alimentação",
       "account": "Cartão de Crédito",
       "value": -356,
-      "consolidated": false,
+      "consolidated": true,
       "transactionDate": "2026-06-12T12:00:00.000Z",
       "createdAt": "2026-06-12T12:00:00.000Z",
-      "updatedAt": "2026-09-27T21:43:48.556Z"
+      "updatedAt": "2026-09-27T21:53:43.467Z"
     },
     {
       "id": "99999999-9999-4999-8999-999999999999",
@@ -31,18 +31,7 @@
       "consolidated": false,
       "transactionDate": "2026-07-28T10:00:00.000Z",
       "createdAt": "2026-07-28T10:00:00.000Z",
-      "updatedAt": "2026-09-27T20:56:18.510Z"
-    },
-    {
-      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-      "description": "New shoes",
-      "category": "Gastos Esporádicos",
-      "account": "Cartão de Crédito",
-      "value": -180,
-      "consolidated": false,
-      "transactionDate": "2026-08-02T13:00:00.000Z",
-      "createdAt": "2026-08-02T13:00:00.000Z",
-      "updatedAt": "2026-09-27T20:56:18.180Z"
+      "updatedAt": "2026-09-27T21:48:16.229Z"
     },
     {
       "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
@@ -59,12 +48,12 @@
       "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
       "description": "Dentist appointment",
       "category": "Saúde",
-      "account": "Cartão de Crédito",
+      "account": "Conta Corrente",
       "value": -210,
       "consolidated": false,
-      "transactionDate": "2026-08-10T11:00:00.000Z",
+      "transactionDate": "2026-08-10T00:00:00.000Z",
       "createdAt": "2026-08-10T11:00:00.000Z",
-      "updatedAt": "2026-09-27T21:44:48.853Z"
+      "updatedAt": "2026-09-27T21:54:28.581Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000001",
@@ -75,7 +64,7 @@
       "consolidated": true,
       "transactionDate": "2026-06-01T09:00:00.000Z",
       "createdAt": "2026-06-01T09:00:00.000Z",
-      "updatedAt": "2026-09-27T21:31:23.431Z"
+      "updatedAt": "2026-09-27T21:54:10.657Z"
     },
     {
       "id": "00000000-0000-4000-8000-000000000002",
