@@ -1,17 +1,13 @@
 <mat-form-field appearance="outline" subscriptSizing="dynamic">
   <mat-label>{{ label }}</mat-label>
-  @if (mask) {
+  @if (currency) {
     <input
       matInput
       [formControl]="control"
       [type]="type"
       [attr.inputmode]="inputMode"
       [placeholder]="placeholder"
-      [mask]="mask"
-      [prefix]="prefix"
-      [thousandSeparator]="thousandSeparator"
-      [decimalMarker]="decimalMarker"
-      [dropSpecialCharacters]="dropSpecialCharacters"
+      [maskito]="maskOptions"
     />
   } @else {
     <input

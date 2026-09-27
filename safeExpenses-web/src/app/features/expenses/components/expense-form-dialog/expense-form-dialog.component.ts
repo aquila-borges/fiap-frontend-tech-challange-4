@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -40,6 +41,32 @@ interface ExpenseFormAlert {
 
 function noWhitespace(control: FormControl<string>): ValidationErrors | null {
   return control.value.trim() ? null : { whitespace: true };
+}
+
+function parseCurrencyAmount(value: unknown): number {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (typeof value !== 'string') {
+    return 0;
+  }
+
+  const normalized = value.includes(',')
+    ? value.replace(/\./g, '').replace(',', '.')
+    : value;
+  return Number(normalized.replace(/[^\d.-]/g, ''));
+}
+
+function minimumAmount(control: AbstractControl): ValidationErrors | null {
+  if (control.value === null || control.value === '') {
+    return null;
+  }
+
+  const amount = parseCurrencyAmount(control.value);
+  return Number.isFinite(amount) && amount >= 0.01
+    ? null
+    : { min: { min: 0.01, actual: amount } };
 }
 
 @Component({
@@ -95,7 +122,7 @@ export class ExpenseFormDialogComponent {
     }),
     amount: new FormControl<number | string | null>(null, [
       Validators.required,
-      Validators.min(0.01),
+      minimumAmount,
     ]),
     transactionDate: new FormControl<Date | null>(new Date(), Validators.required),
     consolidated: new FormControl(false, { nonNullable: true }),
@@ -193,7 +220,7 @@ export class ExpenseFormDialogComponent {
 
   private buildPayload(): CreateExpensePayload {
     const rawValue = this.form.getRawValue();
-    const amount = this.parseAmount(rawValue.amount);
+    const amount = parseCurrencyAmount(rawValue.amount);
 
     return {
       description: rawValue.description.trim(),
@@ -203,17 +230,6 @@ export class ExpenseFormDialogComponent {
       consolidated: rawValue.consolidated,
       transactionDate: this.serializeCalendarDate(rawValue.transactionDate as Date),
     };
-  }
-
-  private parseAmount(value: number | string | null): number {
-    if (typeof value === 'number') {
-      return value;
-    }
-
-    const normalized = value?.includes(',')
-      ? value.replace(/\./g, '').replace(',', '.')
-      : (value ?? '0');
-    return Number(normalized.replace(/[^\d.-]/g, ''));
   }
 
   private resetForm(): void {
