@@ -4,8 +4,8 @@
 	/* BRAND */
 	--se-color-brand-primary: #ff4500;
 	--se-color-brand-primary-hover: #e03d00;
-	--se-gradient-brand: linear-gradient(90deg, #ff4500 0%, #e03d00 100%);
-	--se-gradient-brand-hover: linear-gradient(90deg, #e03d00 0%, #ff4500 100%);
+	--se-gradient-brand: linear-gradient(to bottom, #ff4500 0%, #e03d00 100%);
+	--se-gradient-brand-hover: linear-gradient(to top, #e03d00 0%, #ff4500 100%);
 
 	/* TEXT COLORS */
 	--se-color-text-primary: #ffffff;

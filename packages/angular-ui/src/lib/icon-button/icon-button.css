@@ -2,17 +2,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid transparent;
+  border: none;
   border-radius: var(--se-button-shape);
   padding: 9px 11px;
   background: var(--se-gradient-brand);
-  background-size: 200% 100%;
-  background-position: left center;
   color: var(--se-color-text-on-brand);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition: background-position 0.3s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.3s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .se-icon-button__label {
@@ -31,7 +29,7 @@
 
 .se-icon-button:hover:not(:disabled),
 .se-icon-button:focus-visible:not(:disabled) {
-  background-position: right center;
+  background: var(--se-gradient-brand-hover);
   outline: none;
 }
 
