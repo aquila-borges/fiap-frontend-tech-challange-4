@@ -1,0 +1,45 @@
+services:
+  safeexpenses-api:
+    build:
+      context: ./safeExpenses-api
+      dockerfile: Dockerfile
+    container_name: safeexpenses-api
+    environment:
+      PORT: 3000
+      JSON_SERVER_URL: http://safeexpenses-jsonserver:3001
+    ports:
+      - "3000:3000"
+    depends_on:
+      safeexpenses-jsonserver:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health > /dev/null || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  safeexpenses-jsonserver:
+    build:
+      context: ./safeExpenses-jsonServer
+      dockerfile: Dockerfile
+    container_name: safeexpenses-jsonserver
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3001/expenses > /dev/null || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    ports:
+      - "3001:3001"
+
+  safeexpenses-web:
+    build:
+      context: .
+      dockerfile: safeExpenses-web/Dockerfile
+    container_name: safeexpenses-web
+    ports:
+      - "4200:4200"
+    depends_on:
+      safeexpenses-api:
+        condition: service_healthy

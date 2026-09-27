@@ -1,0 +1,47 @@
+.se-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background-color: var(--se-color-brand-primary);
+  color: var(--se-color-text-on-brand);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.se-icon-button__label {
+  line-height: 1;
+}
+
+.se-icon-button__icon {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-left: 0;
+  font-size: 18px;
+  transform: translateX(-4px);
+  transition: max-width 0.25s ease, opacity 0.2s ease, margin-left 0.25s ease, transform 0.25s ease;
+}
+
+.se-icon-button:hover:not(:disabled),
+.se-icon-button:focus-visible:not(:disabled) {
+  background-color: var(--se-color-brand-primary-hover);
+  outline: none;
+}
+
+.se-icon-button:hover:not(:disabled) .se-icon-button__icon,
+.se-icon-button:focus-visible:not(:disabled) .se-icon-button__icon {
+  max-width: 20px;
+  opacity: 1;
+  margin-left: 6px;
+  transform: translateX(0);
+}
+
+.se-icon-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,43 @@
+@if (expenses().length) {
+  <table class="expense-list">
+    <tbody>
+      @for (expense of expenses(); track expense.id) {
+        <tr
+          [class.expense-list__row--consolidated]="expense.consolidated"
+          [class.expense-list__row--selected]="isSelected(expense.id)"
+        >
+          <td class="expense-list__checkbox">
+            <mat-checkbox
+              [checked]="isSelected(expense.id)"
+              (change)="toggleSelection(expense.id)"
+            />
+          </td>
+          <td>{{ expense.description }}</td>
+          <td>{{ expense.category }}</td>
+          <td>{{ expense.account }}</td>
+          <td [class.expense-list__value--negative]="expense.value < 0">
+            {{ formatValue(expense.value) }}
+          </td>
+          <td>
+            <mat-slide-toggle
+              matTooltip="Consolidar"
+              [checked]="expense.consolidated"
+              (change)="onToggleConsolidated(expense)"
+            />
+          </td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr class="expense-list__footer-row">
+        <td colspan="4" class="expense-list__footer-label">Saldo</td>
+        <td class="expense-list__balance" [class.expense-list__value--negative]="balance() < 0">
+          {{ formatValue(balance()) }}
+        </td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+} @else {
+  <p class="expense-list__empty">Nenhuma despesa encontrada.</p>
+}

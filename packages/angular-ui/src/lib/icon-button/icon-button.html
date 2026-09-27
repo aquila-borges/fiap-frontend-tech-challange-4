@@ -1,0 +1,10 @@
+<button
+  class="se-icon-button"
+  [attr.type]="type"
+  [attr.aria-label]="ariaLabel || label"
+  [disabled]="disabled"
+  (click)="onClick($event)"
+>
+  <span class="se-icon-button__label">{{ label }}</span>
+  <span class="material-icons se-icon-button__icon" aria-hidden="true">{{ icon }}</span>
+</button>

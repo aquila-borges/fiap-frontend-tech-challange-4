@@ -1,0 +1,195 @@
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { forkJoin } from 'rxjs';
+
+import { ExpenseActionsComponent } from '../components/expense-actions/expense-actions.component';
+import { ExpenseListComponent } from '../components/expense-list/expense-list.component';
+import { ExpenseFilters } from '../interfaces/expense-filters.interface';
+import { Expense, UpdateExpensePayload } from '../models/expense.model';
+import { DeleteExpenseUseCase } from '../use-cases/delete-expense.use-case';
+import { ListExpensesUseCase } from '../use-cases/list-expenses.use-case';
+import { UpdateExpenseUseCase } from '../use-cases/update-expense.use-case';
+
+@Component({
+  selector: 'app-expenses-feature',
+  imports: [ExpenseActionsComponent, ExpenseListComponent],
+  templateUrl: './expenses.component.html',
+  styleUrl: './expenses.component.css',
+})
+export class ExpensesComponent implements OnInit {
+  private readonly listExpensesUseCase = inject(ListExpensesUseCase);
+  private readonly updateExpenseUseCase = inject(UpdateExpenseUseCase);
+  private readonly deleteExpenseUseCase = inject(DeleteExpenseUseCase);
+
+  private readonly expenses = signal<Expense[]>([]);
+  private readonly filters = signal<ExpenseFilters>({});
+
+  readonly loading = signal(false);
+  readonly error = signal<string | null>(null);
+  readonly selectedIds = signal<ReadonlySet<string>>(new Set());
+
+  readonly allExpenses = this.expenses.asReadonly();
+  readonly selectedCount = computed(() => this.selectedIds().size);
+
+  readonly allVisibleSelected = computed(() => {
+    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    if (!visibleIds.length) {
+      return false;
+    }
+    const selected = this.selectedIds();
+    return visibleIds.every((id) => selected.has(id));
+  });
+
+  readonly partiallyVisibleSelected = computed(() => {
+    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    if (!visibleIds.length) {
+      return false;
+    }
+    const selected = this.selectedIds();
+    const selectedVisibleCount = visibleIds.filter((id) => selected.has(id)).length;
+    return selectedVisibleCount > 0 && selectedVisibleCount < visibleIds.length;
+  });
+
+  readonly filteredExpenses = computed(() => {
+    const filters = this.filters();
+    return this.expenses().filter((expense) => {
+      if (filters.category && expense.category !== filters.category) {
+        return false;
+      }
+      if (filters.account && expense.account !== filters.account) {
+        return false;
+      }
+      if (filters.consolidated !== undefined && expense.consolidated !== filters.consolidated) {
+        return false;
+      }
+      return true;
+    });
+  });
+
+  ngOnInit(): void {
+    this.loadExpenses();
+  }
+
+  onAddExpense(): void {
+    this.error.set('Add expense flow is not implemented yet.');
+  }
+
+  onFiltersChange(filters: ExpenseFilters): void {
+    this.filters.set(filters);
+  }
+
+  onSelectionToggle(id: string): void {
+    const next = new Set(this.selectedIds());
+    if (next.has(id)) {
+      next.delete(id);
+    } else {
+      next.add(id);
+    }
+    this.selectedIds.set(next);
+  }
+
+  onSelectAllToggle(checked: boolean): void {
+    const visibleIds = this.filteredExpenses().map((expense) => expense.id);
+    const next = new Set(this.selectedIds());
+
+    if (checked) {
+      visibleIds.forEach((id) => next.add(id));
+    } else {
+      visibleIds.forEach((id) => next.delete(id));
+    }
+
+    this.selectedIds.set(next);
+  }
+
+  onConsolidatedToggle(expense: Expense): void {
+    this.updateExpenseUseCase
+      .execute(expense.id, this.buildUpdatePayload(expense, !expense.consolidated))
+      .subscribe({
+        next: () => this.loadExpenses(),
+        error: () => this.error.set('Could not update the expense.'),
+      });
+  }
+
+  onConsolidateSelected(): void {
+    const targets = this.expenses().filter(
+      (expense) => this.selectedIds().has(expense.id) && !expense.consolidated,
+    );
+    if (!targets.length) {
+      return;
+    }
+
+    forkJoin(
+      targets.map((expense) =>
+        this.updateExpenseUseCase.execute(expense.id, this.buildUpdatePayload(expense, true)),
+      ),
+    ).subscribe({
+      next: () => {
+        this.selectedIds.set(new Set());
+        this.loadExpenses();
+      },
+      error: () => this.error.set('Could not consolidate selected expenses.'),
+    });
+  }
+
+  onUnconsolidateSelected(): void {
+    const targets = this.expenses().filter(
+      (expense) => this.selectedIds().has(expense.id) && expense.consolidated,
+    );
+    if (!targets.length) {
+      return;
+    }
+
+    forkJoin(
+      targets.map((expense) =>
+        this.updateExpenseUseCase.execute(expense.id, this.buildUpdatePayload(expense, false)),
+      ),
+    ).subscribe({
+      next: () => {
+        this.selectedIds.set(new Set());
+        this.loadExpenses();
+      },
+      error: () => this.error.set('Could not unconsolidate selected expenses.'),
+    });
+  }
+
+  onDeleteSelected(): void {
+    const ids = Array.from(this.selectedIds());
+    if (!ids.length) {
+      return;
+    }
+
+    forkJoin(ids.map((id) => this.deleteExpenseUseCase.execute(id))).subscribe({
+      next: () => {
+        this.selectedIds.set(new Set());
+        this.loadExpenses();
+      },
+      error: () => this.error.set('Could not delete selected expenses.'),
+    });
+  }
+
+  private loadExpenses(): void {
+    this.loading.set(true);
+    this.listExpensesUseCase.execute().subscribe({
+      next: (expenses) => {
+        this.expenses.set(expenses);
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set('Could not load expenses.');
+        this.loading.set(false);
+      },
+    });
+  }
+
+  private buildUpdatePayload(expense: Expense, consolidated: boolean): UpdateExpensePayload {
+    const payload = {
+      description: expense.description,
+      category: expense.category,
+      account: expense.account,
+      value: expense.value,
+      consolidated,
+      transactionDate: expense.transactionDate,
+    } satisfies UpdateExpensePayload;
+
+    return payload;
+  }
+}

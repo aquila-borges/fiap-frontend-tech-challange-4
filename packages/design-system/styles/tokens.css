@@ -1,0 +1,54 @@
+:root {
+	--se-font-family: 'Montserrat', sans-serif;
+
+	/* BRAND */
+	--se-color-brand-primary: #ff4500;
+	--se-color-brand-primary-hover: #e03d00;
+
+	/* TEXT COLORS */
+	--se-color-text-primary: #ffffff;
+	--se-color-text-heading: #ffffff;
+	--se-color-text-secondary: #8f96a3;
+	--se-color-text-muted: #5c6475;
+	--se-color-text-on-brand: #ffffff;
+	--se-color-text-link: #ff4500;
+	--se-color-text-link-hover: #e03d00;
+
+	/* SURFACE/BACKGROUND COLORS */
+	--se-color-surface-app: #1d2033;
+	--se-color-surface-primary-strong: #171b2a;
+	--se-color-surface-primary-strong-hover: #252839;
+	--se-color-surface-primary-strong-selected: #343647;
+	--se-color-surface-variant: #1d222e;
+	--se-color-surface-dialog: #161920;
+	--se-color-border: #262c3a;
+	--se-color-text-menu: #ffffff;
+
+	/* DIALOG TOKENS */
+	--se-dialog-container-shape: 16px;
+	--se-dialog-container-background: #161920;
+	--se-color-dialog-border: #262c3a;
+	--se-dialog-headline-padding: 15px 30px 12px;
+	--se-dialog-content-padding: 0 30px;
+	--se-dialog-with-actions-content-padding: 0 30px;
+	--se-dialog-actions-padding: 24px 30px 30px;
+	--se-dialog-actions-gap: 12px;
+	--se-dialog-title-size: clamp(1.4rem, 2.8vw, 1.8rem);
+	--se-dialog-title-line-height: 1.25;
+	--se-dialog-content-size: 1rem;
+	--se-dialog-content-line-height: 1.6;
+
+	/* SCROLLBAR TOKENS */
+	--se-color-scrollbar-track: #10141d;
+	--se-color-scrollbar-track-end: #161920;
+	--se-color-scrollbar-thumb: #262c3a;
+	--se-color-scrollbar-thumb-end: #1d222e;
+	--se-color-scrollbar-thumb-hover: #ff4500;
+	--se-color-scrollbar-thumb-hover-end: #e03d00;
+	--se-scrollbar-thumb-inset-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.05);
+
+	/* SHADOW TOKENS */
+	--se-shadow-small: 0 2px 6px rgb(0 0 0 / 0.35);
+	--se-shadow-medium: 0 12px 24px rgb(0 0 0 / 0.4);
+	--se-shadow-large: 0 18px 36px rgb(0 0 0 / 0.45);
+}

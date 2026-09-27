@@ -1,0 +1,26 @@
+@if (loading()) {
+  <p>Carregando despesas...</p>
+} @else if (error()) {
+  <p>{{ error() }}</p>
+} @else {
+  <!--<app-expense-filters
+    [expenses]="allExpenses()"
+    (filtersChange)="onFiltersChange($event)"
+  />-->
+  <app-expense-actions
+    [selectedCount]="selectedCount()"
+    [allSelected]="allVisibleSelected()"
+    [partiallySelected]="partiallyVisibleSelected()"
+    (addExpense)="onAddExpense()"
+    (selectAllToggle)="onSelectAllToggle($event)"
+    (consolidateSelected)="onConsolidateSelected()"
+    (unconsolidateSelected)="onUnconsolidateSelected()"
+    (deleteSelected)="onDeleteSelected()"
+  />
+  <app-expense-list
+    [expenses]="filteredExpenses()"
+    [selectedIds]="selectedIds()"
+    (selectionToggle)="onSelectionToggle($event)"
+    (consolidatedToggle)="onConsolidatedToggle($event)"
+  />
+}

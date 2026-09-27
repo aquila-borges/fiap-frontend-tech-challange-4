@@ -1,0 +1,136 @@
+{
+  "expenses": [
+    {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "description": "June electricity bill",
+      "category": "Utilities",
+      "account": "Checking Account",
+      "value": -245,
+      "consolidated": true,
+      "transactionDate": "2026-06-05T09:00:00.000Z",
+      "createdAt": "2026-06-05T09:00:00.000Z",
+      "updatedAt": "2026-06-05T09:00:00.000Z"
+    },
+    {
+      "id": "22222222-2222-4222-8222-222222222222",
+      "description": "Home appliance repair",
+      "category": "Household",
+      "account": "Savings account",
+      "value": -640,
+      "consolidated": false,
+      "transactionDate": "2026-06-18T15:00:00.000Z",
+      "createdAt": "2026-06-18T15:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:14.078Z"
+    },
+    {
+      "id": "33333333-3333-4333-8333-333333333333",
+      "description": "Monthly rent",
+      "category": "Housing",
+      "account": "Checking Account",
+      "value": -1650,
+      "consolidated": true,
+      "transactionDate": "2026-06-03T09:00:00.000Z",
+      "createdAt": "2026-06-03T09:00:00.000Z",
+      "updatedAt": "2026-06-03T09:00:00.000Z"
+    },
+    {
+      "id": "44444444-4444-4444-8444-444444444444",
+      "description": "June groceries",
+      "category": "Food",
+      "account": "Debit Card",
+      "value": -356,
+      "consolidated": false,
+      "transactionDate": "2026-06-12T12:00:00.000Z",
+      "createdAt": "2026-06-12T12:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:15.217Z"
+    },
+    {
+      "id": "55555555-5555-4555-8555-555555555555",
+      "description": "Gym membership",
+      "category": "Health",
+      "account": "Credit Card",
+      "value": -120,
+      "consolidated": false,
+      "transactionDate": "2026-07-05T09:00:00.000Z",
+      "createdAt": "2026-07-05T09:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:17.336Z"
+    },
+    {
+      "id": "66666666-6666-4666-8666-666666666666",
+      "description": "Emergency car repair",
+      "category": "Transport",
+      "account": "Credit Card",
+      "value": -320,
+      "consolidated": false,
+      "transactionDate": "2026-07-12T14:00:00.000Z",
+      "createdAt": "2026-07-12T14:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:18.000Z"
+    },
+    {
+      "id": "77777777-7777-4777-8777-777777777777",
+      "description": "Ride-share to airport",
+      "category": "Transport",
+      "account": "Digital Wallet",
+      "value": -87,
+      "consolidated": true,
+      "transactionDate": "2026-07-15T18:30:00.000Z",
+      "createdAt": "2026-07-15T18:30:00.000Z",
+      "updatedAt": "2026-07-15T18:30:00.000Z"
+    },
+    {
+      "id": "88888888-8888-4888-8888-888888888888",
+      "description": "Streaming subscriptions",
+      "category": "Entertainment",
+      "account": "Credit Card",
+      "value": -54,
+      "consolidated": true,
+      "transactionDate": "2026-07-20T09:00:00.000Z",
+      "createdAt": "2026-07-20T09:00:00.000Z",
+      "updatedAt": "2026-07-20T09:00:00.000Z"
+    },
+    {
+      "id": "99999999-9999-4999-8999-999999999999",
+      "description": "Online course enrollment",
+      "category": "Education",
+      "account": "Checking Account",
+      "value": -299,
+      "consolidated": false,
+      "transactionDate": "2026-07-28T10:00:00.000Z",
+      "createdAt": "2026-07-28T10:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:19.500Z"
+    },
+    {
+      "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "description": "New shoes",
+      "category": "Shopping",
+      "account": "Debit Card",
+      "value": -180,
+      "consolidated": false,
+      "transactionDate": "2026-08-02T13:00:00.000Z",
+      "createdAt": "2026-08-02T13:00:00.000Z",
+      "updatedAt": "2026-08-19T01:48:20.100Z"
+    },
+    {
+      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "description": "August electricity bill",
+      "category": "Utilities",
+      "account": "Checking Account",
+      "value": -285,
+      "consolidated": false,
+      "transactionDate": "2026-08-05T09:00:00.000Z",
+      "createdAt": "2026-08-05T09:00:00.000Z",
+      "updatedAt": "2026-08-05T09:00:00.000Z"
+    },
+    {
+      "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+      "description": "Dentist appointment",
+      "category": "Health",
+      "account": "Credit Card",
+      "value": -210,
+      "consolidated": true,
+      "transactionDate": "2026-08-10T11:00:00.000Z",
+      "createdAt": "2026-08-10T11:00:00.000Z",
+      "updatedAt": "2026-08-10T11:00:00.000Z"
+    }
+  ]
+}

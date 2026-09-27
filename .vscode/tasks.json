@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "start: api",
+      "type": "npm",
+      "script": "start:dev",
+      "path": "safeExpenses-api",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "Starting compilation"
+          },
+          "endsPattern": {
+            "regexp": "API is running on|Found 0 errors"
+          }
+        }
+      }
+    },
+    {
+      "label": "start: web",
+      "type": "npm",
+      "script": "start",
+      "path": "safeExpenses-web",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "Building"
+          },
+          "endsPattern": {
+            "regexp": "Application bundle generation complete|bundle generation (complete|failed)"
+          }
+        }
+      }
+    },
+    {
+      "label": "start: app stack",
+      "dependsOn": [
+        "start: api",
+        "start: web"
+      ],
+      "dependsOrder": "parallel"
+    }
+  ]
+}

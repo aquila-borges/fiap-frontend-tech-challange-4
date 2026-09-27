@@ -1,0 +1,28 @@
+.se-primary-button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: var(--se-color-text-on-brand);
+  background-color: var(--se-color-brand-primary);
+  box-shadow: none;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.se-primary-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background-color: var(--se-color-brand-primary-hover);
+  box-shadow: var(--se-shadow-small);
+}
+
+.se-primary-button:focus-visible:not(:disabled) {
+  box-shadow: var(--se-shadow-small);
+}
+
+.se-primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

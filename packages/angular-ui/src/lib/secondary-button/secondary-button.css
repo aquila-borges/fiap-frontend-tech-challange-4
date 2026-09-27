@@ -1,0 +1,28 @@
+.se-secondary-button {
+  border: 1px solid var(--se-color-border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: var(--se-color-text-primary);
+  background-color: var(--se-color-surface-variant);
+  box-shadow: none;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.se-secondary-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background-color: var(--se-color-surface-primary-strong-hover);
+  box-shadow: var(--se-shadow-small);
+}
+
+.se-secondary-button:focus-visible:not(:disabled) {
+  box-shadow: var(--se-shadow-small);
+}
+
+.se-secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

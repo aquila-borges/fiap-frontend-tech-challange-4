@@ -1,0 +1,55 @@
+{
+  "name": "safeexpenses-api",
+  "version": "1.0.0",
+  "description": "RESTful API in NestJS with clean architecture and json-server persistence adapter",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main",
+    "start:dev": "nest start --watch",
+    "docker:build": "docker build -t safeexpenses-api .",
+    "docker:network:create": "docker network create safeexpenses-net",
+    "docker:network:remove": "docker network rm safeexpenses-net",
+    "docker:run": "docker run --rm --name safeexpenses-api-local --network safeexpenses-net -e JSON_SERVER_URL=http://safeexpenses-jsonserver-local:3001 -p 3000:3000 safeexpenses-api",
+    "docker:stop": "docker stop safeexpenses-api-local",
+    "lint": "eslint \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": ["nestjs", "clean-architecture", "rest-api", "api"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.28",
+    "@nestjs/core": "^11.1.28",
+    "@nestjs/platform-express": "^11.1.28",
+    "axios": "^1.19.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.7",
+    "@nestjs/schematics": "^11.0.5",
+    "@nestjs/testing": "^11.0.6",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.13.0"
+  }
+}

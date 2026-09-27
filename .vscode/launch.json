@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Web (with API)",
+            "type": "chrome",
+            "request": "launch",
+            "preLaunchTask": "start: app stack",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "frontend"
+            }
+        },
+        {
+            "name": "Attach Chrome (4200)",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}",
+            "presentation": {
+                "hidden": false,
+                "group": "frontend"
+            }
+        }
+    ]
+}

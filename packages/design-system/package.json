@@ -1,0 +1,12 @@
+{
+  "name": "@safeexpenses/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "files": [
+    "styles"
+  ],
+  "exports": {
+    "./tokens.css": "./styles/tokens.css",
+    "./globals.css": "./styles/globals.css"
+  }
+}

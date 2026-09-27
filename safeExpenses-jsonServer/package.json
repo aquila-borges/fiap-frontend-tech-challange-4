@@ -1,0 +1,17 @@
+{
+  "name": "safeexpenses-jsonserver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone json-server for SafeExpenses API",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3001",
+    "docker:build": "docker build -t safeexpenses-jsonserver .",
+    "docker:network:create": "docker network create safeexpenses-net",
+    "docker:network:remove": "docker network rm safeexpenses-net",
+    "docker:run": "docker run --rm --name safeexpenses-jsonserver-local --network safeexpenses-net -p 3001:3001 safeexpenses-jsonserver",
+    "docker:stop": "docker stop safeexpenses-jsonserver-local"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

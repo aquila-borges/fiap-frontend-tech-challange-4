@@ -1,0 +1,97 @@
+@use '@angular/material' as mat;
+
+html {
+	@include mat.theme((
+		color: (
+			primary: mat.$orange-palette,
+			tertiary: mat.$orange-palette,
+			theme-type: dark,
+		),
+		typography: (
+			plain-family: ('Montserrat', sans-serif),
+			brand-family: ('Montserrat', sans-serif),
+			regular-weight: 400,
+			medium-weight: 500,
+			bold-weight: 700,
+		),
+		density: 0,
+	));
+
+	@include mat.theme-overrides((
+		primary: var(--se-color-brand-primary),
+		on-primary: var(--se-color-text-on-brand),
+		primary-container: var(--se-color-surface-primary-strong-hover),
+		on-primary-container: var(--se-color-text-primary),
+		surface: var(--se-color-surface-app),
+		on-surface: var(--se-color-text-primary),
+		surface-container: var(--se-color-surface-primary-strong),
+		surface-container-high: var(--se-color-surface-variant),
+		outline: var(--se-color-border),
+	));
+
+	@include mat.slide-toggle-overrides((
+		label-text-color: var(--se-color-text-primary),
+		label-text-size: 1rem,
+		selected-track-color: var(--se-color-brand-primary),
+	));
+
+	@include mat.tooltip-overrides((
+		container-color: #000000,
+		supporting-text-color: #ffffff,
+		supporting-text-size: 0.8rem,
+	));
+
+	@include mat.dialog-overrides((
+		actions-alignment: flex-end,
+		actions-padding: var(--se-dialog-actions-padding),
+		container-color: var(--se-color-surface-dialog),
+		container-elevation-shadow: var(--se-shadow-large),
+		container-shape: var(--se-dialog-container-shape),
+		content-padding: var(--se-dialog-content-padding),
+		headline-padding: var(--se-dialog-headline-padding),
+		subhead-color: var(--se-color-text-heading),
+		subhead-line-height: var(--se-dialog-title-line-height),
+		subhead-size: var(--se-dialog-title-size),
+		subhead-tracking: 0,
+		subhead-weight: 700,
+		supporting-text-color: var(--se-color-text-secondary),
+		supporting-text-line-height: var(--se-dialog-content-line-height),
+		supporting-text-size: var(--se-dialog-content-size),
+		supporting-text-tracking: 0,
+		with-actions-content-padding: var(--se-dialog-with-actions-content-padding),
+	));
+}
+
+.se-dialog-panel .mat-mdc-dialog-surface {
+	background: var(--se-dialog-container-background);
+	border: 1px solid var(--se-color-dialog-border);
+}
+
+.se-slide-toggle-title {
+	display: block;
+	font-weight: 600;
+	line-height: 1.35;
+	color: var(--se-color-text-heading);
+}
+
+.se-slide-toggle-description {
+	display: block;
+	margin-top: 4px;
+	font-size: 0.92rem;
+	line-height: 1.5;
+	color: var(--se-color-text-secondary);
+}
+
+.se-dialog-panel [mat-dialog-content] p {
+	margin: 0;
+}
+
+.se-dialog-panel [mat-dialog-actions] {
+	gap: var(--se-dialog-actions-gap);
+	min-height: 0;
+}
+
+.se-dialog-backdrop {
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+}

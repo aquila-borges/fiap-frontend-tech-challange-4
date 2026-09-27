@@ -1,0 +1,52 @@
+{
+  "name": "safeexpenses-web",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "docker:build": "docker build -f Dockerfile -t safeexpenses-web ..",
+    "docker:network:create": "docker network create safeexpenses-net",
+    "docker:network:remove": "docker network rm safeexpenses-net",
+    "docker:run": "docker run --rm --name safeexpenses-web-local --network safeexpenses-net -p 4200:4200 safeexpenses-web",
+    "docker:stop": "docker stop safeexpenses-web-local"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^21.2.0",
+    "@angular/cdk": "^21.2.14",
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/material": "^21.2.14",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@safeexpenses/angular-ui": "file:../packages/angular-ui/dist",
+    "@safeexpenses/design-system": "file:../packages/design-system",
+    "@safeexpenses/material-theme": "file:../packages/material-theme",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.2.0",
+    "@angular/build": "^21.2.0",
+    "@angular/cli": "^21.2.0",
+    "@angular/compiler-cli": "^21.2.0",
+    "@eslint/js": "^9.34.0",
+    "angular-eslint": "^21.2.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.41.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
+}

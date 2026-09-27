@@ -1,0 +1,42 @@
+<div class="expense-actions">
+  <div class="expense-actions__left">
+    <mat-checkbox
+      [checked]="allSelected()"
+      [indeterminate]="partiallySelected()"
+      (change)="selectAllToggle.emit($event.checked)"
+    ></mat-checkbox>
+
+    <span class="expense-actions__count">
+      {{ selectedCount() }} selecionada(s)
+    </span>
+  </div>
+
+  <div class="expense-actions__buttons">
+    <se-icon-button
+      label="Adicionar despesa"
+      icon="add"
+      (buttonClick)="addExpense.emit()"
+    />
+
+    <se-icon-button
+      label="Consolidar"
+      icon="check"
+      [disabled]="!selectedCount()"
+      (buttonClick)="consolidateSelected.emit()"
+    />
+
+    <se-icon-button
+      label="Desconsolidar"
+      icon="remove_done"
+      [disabled]="!selectedCount()"
+      (buttonClick)="unconsolidateSelected.emit()"
+    />
+
+    <se-icon-button
+      label="Excluir"
+      icon="delete"
+      [disabled]="!selectedCount()"
+      (buttonClick)="deleteSelected.emit()"
+    />
+  </div>
+</div>
