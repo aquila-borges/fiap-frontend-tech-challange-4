@@ -3,18 +3,20 @@
   border-radius: 999px;
   padding: 10px 16px;
   color: var(--se-color-text-on-brand);
-  background-color: var(--se-color-brand-primary);
+  background: var(--se-gradient-brand);
+  background-size: 200% 100%;
+  background-position: left center;
   box-shadow: none;
   font: inherit;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, background-position 0.3s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .se-primary-button:hover:not(:disabled) {
   transform: translateY(-1px);
-  background-color: var(--se-color-brand-primary-hover);
+  background-position: right center;
   box-shadow: var(--se-shadow-small);
 }
 

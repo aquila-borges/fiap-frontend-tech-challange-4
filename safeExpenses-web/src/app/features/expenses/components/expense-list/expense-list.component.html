@@ -15,7 +15,10 @@
           <td>{{ expense.description }}</td>
           <td>{{ expense.category }}</td>
           <td>{{ expense.account }}</td>
-          <td [class.expense-list__value--negative]="expense.value < 0">
+          <td
+            [class.expense-list__value--positive]="expense.value >= 0"
+            [class.expense-list__value--negative]="expense.value < 0"
+          >
             {{ formatValue(expense.value) }}
           </td>
           <td>
@@ -31,7 +34,11 @@
     <tfoot>
       <tr class="expense-list__footer-row">
         <td colspan="4" class="expense-list__footer-label">Saldo</td>
-        <td class="expense-list__balance" [class.expense-list__value--negative]="balance() < 0">
+        <td
+          class="expense-list__balance"
+          [class.expense-list__value--positive]="balance() >= 0"
+          [class.expense-list__value--negative]="balance() < 0"
+        >
           {{ formatValue(balance()) }}
         </td>
         <td></td>

@@ -14,15 +14,15 @@
 }
 
 .expense-list tbody tr.expense-list__row--consolidated {
-  background-color: rgb(255 69 0 / 0.04);
+  background-color: var(--se-color-surface-consolidated);
 }
 
 .expense-list tbody tr:hover {
-  background-color: var(--se-color-surface-variant);
+  background-color: var(--se-color-surface-primary-strong-hover);
 }
 
 .expense-list tbody tr.expense-list__row--selected {
-  background-color: var(--se-color-surface-variant);
+  background-color: var(--se-color-surface-primary-strong-selected);
 }
 
 .expense-list__checkbox {
@@ -33,8 +33,12 @@
   font-weight: 600;
 }
 
+.expense-list__value--positive {
+  color: var(--se-color-status-positive);
+}
+
 .expense-list__value--negative {
-  color: #ff6b4a;
+  color: var(--se-color-status-negative);
 }
 
 .expense-list__footer-row td {

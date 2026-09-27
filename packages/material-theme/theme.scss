@@ -64,6 +64,11 @@ html {
 		with-actions-content-padding: var(--se-dialog-with-actions-content-padding),
 	));
 }
+
+.mat-mdc-slide-toggle .mdc-switch--selected .mdc-switch__track {
+	background: var(--se-gradient-brand);
+}
+
 .se-dialog-panel .mat-mdc-dialog-surface {
 	background: var(--se-dialog-container-background);
 	border: 1px solid var(--se-color-dialog-border);

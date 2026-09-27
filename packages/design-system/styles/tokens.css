@@ -4,6 +4,8 @@
 	/* BRAND */
 	--se-color-brand-primary: #ff4500;
 	--se-color-brand-primary-hover: #e03d00;
+	--se-gradient-brand: linear-gradient(90deg, #ff4500 0%, #e03d00 100%);
+	--se-gradient-brand-hover: linear-gradient(90deg, #e03d00 0%, #ff4500 100%);
 
 	/* TEXT COLORS */
 	--se-color-text-primary: #ffffff;
@@ -14,6 +16,8 @@
 	--se-color-text-on-brand: #ffffff;
 	--se-color-text-link: #ff4500;
 	--se-color-text-link-hover: #e03d00;
+	--se-color-status-positive: #4ade80;
+	--se-color-status-negative: #ff6b4a;
 
 	/* SURFACE/BACKGROUND COLORS */
 	--se-color-surface-app: #1d2033;
@@ -21,6 +25,7 @@
 	--se-color-surface-primary-strong-hover: #252839;
 	--se-color-surface-primary-strong-selected: #343647;
 	--se-color-surface-variant: #252839;
+	--se-color-surface-consolidated: #141724;
 	--se-color-surface-dialog: #171b2a;
 	--se-color-border: #343647;
 	--se-color-text-menu: #ffffff;
