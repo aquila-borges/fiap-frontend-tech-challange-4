@@ -39,9 +39,9 @@ html {
 	));
 
 	@include mat.tooltip-overrides((
-		container-color: #000000,
-		supporting-text-color: #ffffff,
-		supporting-text-size: 0.8rem,
+		container-color: var(--se-color-tooltip-background),
+		supporting-text-color: var(--se-color-tooltip-text),
+		supporting-text-size: var(--se-tooltip-text-size),
 	));
 
 	@include mat.dialog-overrides((

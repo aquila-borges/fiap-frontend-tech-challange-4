@@ -1,27 +1,27 @@
 @if (isLoading) {
-	<div class="shell-loading" role="status" aria-live="polite" aria-label="Loading application">
-		<div class="shell-loading__card">
-			<img class="shell-loading__logo" src="/logos/logo.png" alt="SafeExpenses" />
-			<p class="shell-loading__phrase">{{ loadingPhrase }}</p>
+	<div class="safe-expenses-loading" role="status" aria-live="polite" aria-label="Loading application">
+		<div class="safe-expenses-loading__card">
+			<img class="safe-expenses-loading__logo" src="/logos/logo.png" alt="SafeExpenses" />
+			<p class="safe-expenses-loading__phrase">{{ loadingPhrase }}</p>
 		</div>
 	</div>
 }
 
-<div class="shell" [class.shell--sidebar-collapsed]="isSidebarCollapsed" [class.shell--is-loading]="isLoading">
-	<div class="shell-sidebar" [class.shell-sidebar--collapsed]="isSidebarCollapsed">
-		<div class="shell-sidebar__header">
+<div class="safe-expenses" [class.safe-expenses--sidebar-collapsed]="isSidebarCollapsed" [class.safe-expenses--is-loading]="isLoading">
+	<div class="safe-expenses-sidebar" [class.safe-expenses-sidebar--collapsed]="isSidebarCollapsed">
+		<div class="safe-expenses-sidebar__header">
 			@if (!isSidebarCollapsed) {
-				<span class="shell-sidebar__brand">
+				<span class="safe-expenses-sidebar__brand">
 					<img src="/logos/logo.png" alt="SafeExpenses" />
-					<div class="shell-sidebar__brand-text">
-						<span class="shell-sidebar__brand-safe">Safe</span>
-						<span class="shell-sidebar__brand-expenses">Expenses</span>
+					<div class="safe-expenses-sidebar__brand-text">
+						<span class="safe-expenses-sidebar__brand-safe">Safe</span>
+						<span class="safe-expenses-sidebar__brand-expenses">Expenses</span>
 					</div>
 				</span>
 			}
 			<button
 				type="button"
-				class="shell-sidebar__toggle"
+				class="safe-expenses-sidebar__toggle"
 				aria-label="Toggle menu state"
 				(click)="toggleSidebar()"
 			>
@@ -31,74 +31,77 @@
 			</button>
 		</div>
 
-		<div class="shell-sidebar__content">
-			<ul class="shell-sidebar__menu">
+		<div class="safe-expenses-sidebar__content">
+			<ul class="safe-expenses-sidebar__menu">
 				<li>
 					<button
 						type="button"
-						class="shell-sidebar__link"
+						class="safe-expenses-sidebar__link"
+						matRipple
 						routerLink="/home"
-						routerLinkActive="shell-sidebar__link--active"
+						routerLinkActive="safe-expenses-sidebar__link--active"
 						matTooltip="Home"
 						matTooltipPosition="right"
 						[matTooltipDisabled]="!isSidebarCollapsed"
 					>
-						<span class="material-icons shell-sidebar__link-icon" aria-hidden="true">home</span>
-						<span class="shell-sidebar__link-label">Home</span>
+						<span class="material-icons safe-expenses-sidebar__link-icon" aria-hidden="true">home</span>
+						<span class="safe-expenses-sidebar__link-label">Home</span>
 					</button>
 				</li>
 				<li>
 					<button
 						type="button"
-						class="shell-sidebar__link"
+						class="safe-expenses-sidebar__link"
+						matRipple
 						routerLink="/expenses"
-						routerLinkActive="shell-sidebar__link--active"
+						routerLinkActive="safe-expenses-sidebar__link--active"
 						matTooltip="Despesas"
 						matTooltipPosition="right"
 						[matTooltipDisabled]="!isSidebarCollapsed"
 					>
-						<span class="material-icons shell-sidebar__link-icon" aria-hidden="true">receipt_long</span>
-						<span class="shell-sidebar__link-label">Despesas</span>
+						<span class="material-icons safe-expenses-sidebar__link-icon" aria-hidden="true">receipt_long</span>
+						<span class="safe-expenses-sidebar__link-label">Despesas</span>
 					</button>
 				</li>
 				<li>
 					<button
 						type="button"
-						class="shell-sidebar__link"
+						class="safe-expenses-sidebar__link"
+						matRipple
 						(click)="openConfigurations()"
 						matTooltip="Configurações"
 						matTooltipPosition="right"
 						[matTooltipDisabled]="!isSidebarCollapsed"
 					>
-						<span class="material-icons shell-sidebar__link-icon" aria-hidden="true">settings</span>
-						<span class="shell-sidebar__link-label">Configurações</span>
+						<span class="material-icons safe-expenses-sidebar__link-icon" aria-hidden="true">settings</span>
+						<span class="safe-expenses-sidebar__link-label">Configurações</span>
 					</button>
 				</li>
 			</ul>
 		</div>
 
 		@if (isSidebarCollapsed) {
-			<img class="shell-sidebar__footer-logo-collapsed" src="/logos/logo.png" alt="SafeExpenses" />
+			<img class="safe-expenses-sidebar__footer-logo-collapsed" src="/logos/logo.png" alt="SafeExpenses" />
 		}
-		<div class="shell-sidebar__footer">
-			<div class="shell-sidebar__footer-content">
+		<div class="safe-expenses-sidebar__footer">
+			<div class="safe-expenses-sidebar__footer-content">
 				<p>© 2026 SafeExpenses v1.0</p>
 			</div>
 		</div>
 	</div>
 
-	<main class="shell-main">
-		<div class="shell-main__header">
-			<div class="shell-user-menu">
-				<div class="shell-user-menu__identity">
-					<span class="material-icons shell-user-menu__icon" aria-hidden="true">account_circle</span>
-					<span class="shell-user-menu__name">Fiap - FRNT</span>
+	<main class="safe-expenses-main">
+		<div class="safe-expenses-main__header">
+			<div class="safe-expenses-user-menu">
+				<div class="safe-expenses-user-menu__identity">
+					<span class="material-icons safe-expenses-user-menu__icon" aria-hidden="true">account_circle</span>
+					<span class="safe-expenses-user-menu__name">Fiap - FRNT</span>
 				</div>
 				<se-icon-button label="Logout" icon="logout" />
 			</div>
 		</div>
 
-		<div class="shell-main__body">
+		<div class="safe-expenses-main__body">
 			<router-outlet />
 		</div>
 	</main>

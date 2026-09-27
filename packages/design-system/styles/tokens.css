@@ -4,18 +4,22 @@
 	/* BRAND */
 	--se-color-brand-primary: #ff4500;
 	--se-color-brand-primary-hover: #e03d00;
-	--se-gradient-brand: linear-gradient(to bottom, #ff4500 0%, #e03d00 100%);
-	--se-gradient-brand-hover: linear-gradient(to top, #e03d00 0%, #ff4500 100%);
+	--se-gradient-brand: linear-gradient(to bottom, var(--se-color-brand-primary) 0%, var(--se-color-brand-primary-hover) 100%);
+	--se-gradient-brand-hover: linear-gradient(to top, var(--se-color-brand-primary-hover) 0%, var(--se-color-brand-primary) 100%);
 
 	/* TEXT COLORS */
 	--se-color-text-primary: #ffffff;
 	--se-color-text-primary-hover: #e5e7eb;
-	--se-color-text-heading: #ffffff;
 	--se-color-text-secondary: #8f96a3;
 	--se-color-text-muted: #5c6475;
-	--se-color-text-on-brand: #ffffff;
-	--se-color-text-link: #ff4500;
-	--se-color-text-link-hover: #e03d00;
+	/* Aliases below share the same value as text-primary today but stay as separate
+	   tokens so each usage (headings, text on brand-colored surfaces, sidebar menu)
+	   can be re-themed independently without touching general body text. */
+	--se-color-text-heading: var(--se-color-text-primary);
+	--se-color-text-on-brand: var(--se-color-text-primary);
+	--se-color-text-menu: var(--se-color-text-primary);
+
+	/* STATUS COLORS */
 	--se-color-status-positive: #4ade80;
 	--se-color-status-negative: #ff6b4a;
 
@@ -24,16 +28,17 @@
 	--se-color-surface-primary-strong: #171b2a;
 	--se-color-surface-primary-strong-hover: #252839;
 	--se-color-surface-primary-strong-selected: #343647;
-	--se-color-surface-variant: #252839;
+	/* Same value as surface-primary-strong-hover today; kept as its own token because
+	   it is used for a different concern (variant/neutral surfaces vs. hover feedback). */
+	--se-color-surface-variant: var(--se-color-surface-primary-strong-hover);
 	--se-color-surface-consolidated: #141724;
-	--se-color-surface-dialog: #171b2a;
+	--se-color-surface-dialog: var(--se-color-surface-primary-strong);
 	--se-color-border: #343647;
-	--se-color-text-menu: #ffffff;
 
 	/* DIALOG TOKENS */
 	--se-dialog-container-shape: 8px;
-	--se-dialog-container-background: #171b2a;
-	--se-color-dialog-border: #343647;
+	--se-dialog-container-background: var(--se-color-surface-dialog);
+	--se-color-dialog-border: var(--se-color-border);
 	--se-dialog-headline-padding: 15px 30px 12px;
 	--se-dialog-content-padding: 0 30px;
 	--se-dialog-with-actions-content-padding: 0 30px;
@@ -44,13 +49,18 @@
 	--se-dialog-content-size: 1rem;
 	--se-dialog-content-line-height: 1.6;
 
+	/* TOOLTIP TOKENS */
+	--se-color-tooltip-background: #000000;
+	--se-color-tooltip-text: var(--se-color-text-primary);
+	--se-tooltip-text-size: 0.8rem;
+
 	/* SCROLLBAR TOKENS */
 	--se-color-scrollbar-track: #10141d;
 	--se-color-scrollbar-track-end: #161920;
 	--se-color-scrollbar-thumb: #262c3a;
 	--se-color-scrollbar-thumb-end: #1d222e;
-	--se-color-scrollbar-thumb-hover: #ff4500;
-	--se-color-scrollbar-thumb-hover-end: #e03d00;
+	--se-color-scrollbar-thumb-hover: var(--se-color-brand-primary);
+	--se-color-scrollbar-thumb-hover-end: var(--se-color-brand-primary-hover);
 	--se-scrollbar-thumb-inset-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.05);
 
 	/* COMPONENT SHAPES */

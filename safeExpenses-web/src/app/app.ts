@@ -1,4 +1,5 @@
 import { Component, HostListener, inject } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 import { IconButtonComponent } from '@safeexpenses/angular-ui';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {
@@ -18,7 +19,7 @@ import { ConfigurationsDialogComponent } from './features/configurations/configu
 
 @Component({
   selector: 'app-root',
-  imports: [IconButtonComponent, MatTooltipModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [IconButtonComponent, MatRippleModule, MatTooltipModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
